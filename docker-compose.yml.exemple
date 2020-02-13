@@ -1,0 +1,17 @@
+version: "3.1"
+services:
+  portainer:
+    image: portainer/portainer:latest
+    container_name: portainer
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./volumes/certs:/certs
+      - ./volumes/data:/data
+    ports:
+      - "9000:9000/tcp"
+    restart: always
+    command: --ssl --sslcert /certs/portainer.crt --sslkey /certs/portainer.key

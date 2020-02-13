@@ -1,0 +1,5 @@
+/volumes/certs/*
+/volumes/data/*
+docker-compose.yml
+!.gitignore
+!.gitkeep
